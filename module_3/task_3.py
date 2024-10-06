@@ -52,38 +52,38 @@ def capitalize_after_dot(_line):
 
     return ''.join(result)
 
+if __name__ == '__main__':
+    last_words = []
+    # cycle to get throw all the lines
+    homework_lines = homework.splitlines()
+    # cycle to go throw all the lines
+    for i, line in enumerate(homework_lines):
+        # capitalize all the character after dot
+        updated_line = capitalize_after_dot(line)
 
-last_words = []
-# cycle to get throw all the lines
-homework_lines = homework.splitlines()
-# cycle to go throw all the lines
-for i, line in enumerate(homework_lines):
-    # capitalize all the character after dot
-    updated_line = capitalize_after_dot(line)
+        # capitalize first character in the line
+        updated_line = capitalize_first_char_in_the_line(updated_line)
+        homework_lines[i] = updated_line if updated_line is not None else homework_lines[i]
 
-    # capitalize first character in the line
-    updated_line = capitalize_first_char_in_the_line(updated_line)
-    homework_lines[i] = updated_line if updated_line is not None else homework_lines[i]
+        # get last word of each sentence
+        last_word = get_last_word(line)
+        if last_word is not None: last_words.append(last_word)
 
-    # get last word of each sentence
-    last_word = get_last_word(line)
-    if last_word is not None: last_words.append(last_word)
+    # capitalize first word of last_words list
+    last_words[0] = last_words[0].capitalize()
+    # add found last words to the end of 2nd paragraph
+    for word in last_words:
+        homework_lines[3] += ' ' + word
+    # replace homework string with updated list of lines
+    homework = '\n'.join(homework_lines)
 
-# capitalize first word of last_words list
-last_words[0] = last_words[0].capitalize()
-# add found last words to the end of 2nd paragraph
-for word in last_words:
-    homework_lines[3] += ' ' + word
-# replace homework string with updated list of lines
-homework = '\n'.join(homework_lines)
+    # TASK iZ
+    homework = homework.replace(' iz ', ' is ')
 
-# TASK iZ
-homework = homework.replace(' iz ', ' is ')
+    # TASK calculate number of whitespace characters
+    whitespace_count = len(re.findall(r'\s', homework))
 
-# TASK calculate number of whitespace characters
-whitespace_count = len(re.findall(r'\s', homework))
-
-print('=== number of all whitespaces ===')
-print(whitespace_count)
-print('=== formatted text ===')
-print(homework)
+    print('=== number of all whitespaces ===')
+    print(whitespace_count)
+    print('=== formatted text ===')
+    print(homework)
