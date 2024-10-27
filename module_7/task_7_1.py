@@ -39,17 +39,23 @@ def put_word(_filename, _word):
         if not _word_found:
             _rows.append({'word': _word, 'count': 1})
 
-    # Write all the rows
-    with open(_filename, 'w+') as _file:
-        _writer = csv.DictWriter(_file, HEADERS)
+        # Write all the rows
+        write_rows(_filename, _rows, HEADERS)
+
+def write_rows(_filename, _rows, _headers):
+    with open(_filename, 'w+', newline='') as _file:
+        _writer = csv.DictWriter(_file, _headers)
         _writer.writeheader()
         _writer.writerows(_rows)
 
-def start_csv_processing():
+def initialize_csv(_csv_path):
     # Clear CSV file before processing
-    with open(CSV_FILE, 'w') as _file:
-        _writer = csv.DictWriter(_file, HEADERS)
-        _writer.writeheader()
+    with open(_csv_path, 'w') as file:
+        writer = csv.DictWriter(file, HEADERS)
+        writer.writeheader()
+
+def start_csv_processing():
+    initialize_csv(CSV_FILE)
 
     # Get all words in lowercase
     with open(PATH_TO_FILE, 'r') as feed_file:
