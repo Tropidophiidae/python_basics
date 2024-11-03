@@ -1,0 +1,17 @@
+<records>
+    <record>
+        <type>Weather</type>
+        <text>Weather text</text>
+        <unique_part>Precipitation chance: 82%</unique_part>
+    </record>
+    <record>
+        <type>Private Ad</type>
+        <text>Private Ad text</text>
+        <unique_part>Actual until: 2025-01-01, 86 days left</unique_part>
+    </record>
+    <record>
+        <type>News</type>
+        <text>News text</text>
+        <unique_part>Kaunas, 2024-10-06 18.11</unique_part>
+    </record>
+</records>
