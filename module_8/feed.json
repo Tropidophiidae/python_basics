@@ -1,0 +1,17 @@
+[
+  {
+    "type": "Weather",
+    "text": "Weather text",
+    "unique_part": "Precipitation chance: 82%"
+  },
+  {
+    "type": "Private Ad",
+    "text": "Private Ad text",
+    "unique_part": "Actual until: 2025-01-01, 86 days left"
+  },
+  {
+    "type": "News",
+    "text": "News text",
+    "unique_part": "Kaunas, 2024-10-06 18.11"
+  }
+]
